@@ -11,7 +11,7 @@ function Clicker({ buttonText, message }){
 
     return (
         <div>
-            <p>Click the Button</p>
+            <p>Click the button</p>
             <button onClick={handleClick}>{buttonText}</button>
         </div>
     )
