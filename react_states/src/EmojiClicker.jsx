@@ -10,14 +10,22 @@ function EmojiClicker(){
     const [emojis, setEmojis] = useState([{id: uuid(), emoji: randomEmoji()}]);
 
     const addEmoji = () => {
-        setEmojis((oldEmojis) => [...oldEmojis, {id: uuid(), emoji: randomEmoji()}]);
+        setEmojis((prevState) => [...prevState, {id: uuid(), emoji: randomEmoji()}]);
     };
 
     const deleteEmoji = (id) => {
-        setEmojis((oldEmojis) => {
-            return oldEmojis.filter(emoji => emoji.id !== id);
+        setEmojis((prevState) => {
+            return prevState.filter(emoji => emoji.id !== id);
         })
     };
+
+    const makeAllHearts = () => {
+        setEmojis(prevState => {
+            return prevState.map((emoji) => {
+                return { ...emoji, emoji: '❤️'}
+            })
+        })
+    }
 
     return (
         <div>
@@ -27,6 +35,7 @@ function EmojiClicker(){
                 </span>
             ))}
             <button onClick={addEmoji}>Add emoji</button>
+            <button onClick={makeAllHearts}>Make All Hearts</button>
         </div>
     )
 }
