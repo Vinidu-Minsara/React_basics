@@ -3,6 +3,7 @@ import Counter from "./Counter.jsx";
 import Toggler from "./Toggler.jsx";
 import CounterWithUpdate from "./CounterWithUpdate.jsx";
 import ScoreKeeper from "./ScoreKeeper.jsx";
+import EmojiClicker from "./EmojiClicker.jsx";
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
         {/*<Counter/>*/}
         {/*<Toggler/>*/}
         {/*<CounterWithUpdate/>*/}
-        <ScoreKeeper/>
+        {/*<ScoreKeeper/>*/}
+        <EmojiClicker/>
     </>
   )
 }
