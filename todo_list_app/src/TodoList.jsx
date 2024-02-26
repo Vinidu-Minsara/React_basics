@@ -1,17 +1,23 @@
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import CommentIcon from '@mui/icons-material/Comment';
+import TodoItem from "./TodoItem.jsx";
 import {useState} from "react";
 
+const list = [
+    {id: 1, text: "walk the dog", completed: false},
+    {id: 2, text: "get breakfast", completed: true},
+    {id: 3, text: "go to work", completed: false},
+    {id: 4, text: "get lunch", completed: false},
+];
+
 function TodoList(){
+    const [todos, setTodos] = useState(list);
 
     return (
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}></List>
+        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            {todos.map((todo) => (
+                <TodoItem todo={todo} key={todo.id}/>
+            ))}
+        </List>
     )
 }
 
