@@ -24,7 +24,7 @@ function  TodoItem({todo, remove, toggle}){
             }
             disablePadding
         >
-            <ListItemButton role={undefined} ense>
+            <ListItemButton role={undefined}>
                 <ListItemIcon>
                     <Checkbox
                         edge="start"
