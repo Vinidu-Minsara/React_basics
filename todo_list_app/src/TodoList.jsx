@@ -12,10 +12,28 @@ const list = [
 function TodoList(){
     const [todos, setTodos] = useState(list);
 
+    const toggleTodo = (id) => {
+        setTodos(prevTodos => {
+            return prevTodos.map((todo) => {
+                if (todo.id === id){
+                    return { ...todo, completed: !todo.completed };
+                }else {
+                    return todo;
+                }
+            });
+        });
+    }
+
+    const removeTodo = (id) => {
+        setTodos(prevTodos => {
+            return prevTodos.filter((todo) => todo.id !== id);
+        });
+    };
+
     return (
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
             {todos.map((todo) => (
-                <TodoItem todo={todo} key={todo.id}/>
+                <TodoItem todo={todo} key={todo.id} remove={removeTodo} toggle={() => toggleTodo(todo.id)}/>
             ))}
         </List>
     )
